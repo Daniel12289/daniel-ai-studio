@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-surface-line;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+  ::selection {
+    @apply bg-amber/30 text-ash-50;
+  }
+  :focus-visible {
+    outline: 2px solid #ffb020;
+    outline-offset: 2px;
+  }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #0B0D12; }
+  ::-webkit-scrollbar-thumb { background: #2A2F3E; border-radius: 8px; }
+  ::-webkit-scrollbar-thumb:hover { background: #565B6B; }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface border border-surface-line rounded-2xl;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-amber text-ink font-medium px-4 py-2.5
+           hover:bg-amber/90 active:scale-[0.98] transition disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-surface-hi border border-surface-line
+           text-ash-50 font-medium px-4 py-2.5 hover:border-ash-700 transition disabled:opacity-50;
+  }
+  .input {
+    @apply w-full bg-surface-hi border border-surface-line rounded-xl px-3.5 py-2.5 text-sm
+           placeholder:text-ash-700 focus:border-amber/60 transition outline-none;
+  }
+  .label {
+    @apply text-xs uppercase tracking-wider text-ash-500 font-mono;
+  }
+  .console-cursor::after {
+    content: "▍";
+    @apply text-amber animate-blink ml-0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
